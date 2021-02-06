@@ -508,7 +508,7 @@ static uint8_t USBD_CDC_Init(USBD_HandleTypeDef *pdev, uint8_t cfgidx)
   pdev->ep_in[CDC_CMD_EP & 0xFU].is_used = 1U;
 
   /* Init  physical Interface components */
-  ((USBD_CDC_ItfTypeDef *)pdev->pUserData)->Init();
+  //((USBD_CDC_ItfTypeDef *)pdev->pUserData)->Init();
 
   /* Init Xfer states */
   hcdc->TxState = 0U;
