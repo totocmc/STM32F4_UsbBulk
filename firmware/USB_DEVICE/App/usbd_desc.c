@@ -68,8 +68,8 @@
 #define USBD_MANUFACTURER_STRING     "STMicroelectronics"
 #define USBD_PID_FS     0x5740
 #define USBD_PRODUCT_STRING_FS     "STM32 Usb Bulk"
-#define USBD_CONFIGURATION_STRING_FS     "USB Config"
-#define USBD_INTERFACE_STRING_FS     "Bulk Interface"
+#define USBD_CONFIGURATION_STRING_FS     "CDC Config"
+#define USBD_INTERFACE_STRING_FS     "CDC Interface"
 
 #define USB_SIZ_BOS_DESC            0x0C
 

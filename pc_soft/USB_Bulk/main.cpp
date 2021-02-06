@@ -6,8 +6,8 @@
 #include <string.h>
 #include "libusb.h"
 
-#define BULK_EP_OUT     0x81
-#define BULK_EP_IN      0x01
+#define BULK_EP_OUT     0x01
+#define BULK_EP_IN      0x81
 
 int verbose = 0;
 
