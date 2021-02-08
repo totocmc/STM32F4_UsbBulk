@@ -287,14 +287,17 @@ int main(int argc, char *argv[])
     int length = 0;
 
     my_string = (char *)malloc(63 + 1);
+    my_string1 = (char *)malloc(63 + 1);
 
     memset(my_string,'\0',64);
+    memset(my_string1,'\0',64);
 
     strcpy(my_string,"prasad divesd");
     length = strlen(my_string);
 
     printf("\nTo be sent : %s",my_string);
 
+    /* WRITE */
     e = libusb_bulk_transfer(handle,BULK_EP_OUT,(unsigned char *)my_string,length,&transferred,0);
     if(e == 0 && transferred == length)
     {
@@ -302,8 +305,21 @@ int main(int argc, char *argv[])
         printf("\nSent %d bytes with string: %s\n", transferred, my_string);
     }
     else
+    {
         printf("\nError in write! e = %d and transferred = %d\n",e,transferred);
+    }
 
+    /* READ */
+    e = libusb_bulk_transfer(handle,BULK_EP_IN,(unsigned char *)my_string,length,&received,0);
+    if(e == 0 && received == length)
+    {
+        printf("\nRead successful!");
+        printf("\nReceive %d bytes with string: %s\n", received, my_string);
+    }
+    else
+    {
+        printf("\nError in read! e = %d and received = %d\n",e,received);
+    }
 
     libusb_free_device_list(devs, 1);
     libusb_release_interface(handle, 0);
